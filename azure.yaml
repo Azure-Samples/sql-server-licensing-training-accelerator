@@ -1,0 +1,37 @@
+name: sql-server-licensing-accelerator
+metadata:
+  template: sql-server-licensing-accelerator@0.0.1-beta
+  
+services:
+  frontend:
+    project: ./frontend
+    dist: dist
+    host: staticwebapp
+    
+  backend:
+    project: ./backend
+    language: python
+    host: appservice
+    
+hooks:
+  preprovision:
+    shell: pwsh
+    run: |
+      Write-Host "Preparing infrastructure provisioning..."
+      
+  postprovision:
+    shell: pwsh
+    run: |
+      Write-Host "Infrastructure provisioned successfully"
+      
+  prepackage:
+    shell: pwsh
+    run: |
+      Write-Host "Building application packages..."
+      
+  postdeploy:
+    shell: pwsh
+    run: |
+      Write-Host "Deployment completed successfully"
+      Write-Host "Frontend URL: $env:AZURE_FRONTEND_URL"
+      Write-Host "Backend URL: $env:AZURE_BACKEND_URL"
