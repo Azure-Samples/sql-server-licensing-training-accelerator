@@ -11,7 +11,7 @@ fastapi = {extras = ["standard"], version = "^0.115.13"}
 psycopg = {extras = ["binary"], version = "^3.2.9"}
 pydantic-settings = "^2.9.1"
 stripe = "^12.2.0"
-python-multipart = "^0.0.20"
+python-multipart = "^0.0.22"
 
 
 [build-system]
